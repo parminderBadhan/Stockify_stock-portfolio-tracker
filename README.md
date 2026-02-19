@@ -1,5 +1,4 @@
 # Real-Time Stock Portfolio Tracker with Risk Analytics
-
 A full-stack web application for tracking investment portfolios with real-time stock prices, P&L calculations, and comprehensive risk analytics.
 
 ## Features
