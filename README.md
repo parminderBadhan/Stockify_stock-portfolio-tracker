@@ -138,34 +138,6 @@ REACT_APP_API_URL=http://localhost:5000/api
 - `GET /api/alerts/:portfolioId` - List alerts
 - `DELETE /api/alerts/:id` - Delete alert
 
-## Database Schema
-
-### Portfolios
-- id, user_id, name, created_at, updated_at
-
-### Holdings
-- id, portfolio_id, symbol, quantity, purchase_price, purchase_date
-
-### PriceHistory
-- id, symbol, price, date, volume
-
-### Alerts
-- id, portfolio_id, symbol, price_threshold, condition, email, is_active
-
-### RiskMetrics
-- id, portfolio_id, beta, var_95, sector_concentration, calculated_at
-
-## Development
-
-### Running Tests
-```bash
-cd backend && npm test
-```
-
-### Linting
-```bash
-npm run lint
-```
 
 ## Key Calculations
 
