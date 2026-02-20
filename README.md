@@ -160,12 +160,6 @@ where weight_i = value_i / total_portfolio_value
 ### Value at Risk (VaR) 95%
 Uses historical variance method on portfolio returns over past periods.
 
-## Performance Optimization
-
-- Redis caches stock prices (5-minute TTL)
-- Database indexes on symbol and user_id
-- Connection pooling for PostgreSQL
-- Batch updates for price history
 
 ## License
 
