@@ -35,7 +35,19 @@ async def get_portfolios(conn=Depends(get_db)):
     try:
         user_id = 1  # Simplified
         portfolios = Portfolio.find_by_user_id(conn, user_id)
-        return portfolios
+
+        # Enrich each portfolio with calculated totals (value, P&L)
+        enriched = []
+        for p in portfolios:
+            try:
+                holdings = Holding.find_by_portfolio_id(conn, p['id'])
+                portfolio_value = await risk_service.calculate_portfolio_value(conn, holdings)
+                enriched.append({**p, **portfolio_value})
+            except Exception:
+                # If calculation fails for a portfolio, still include base portfolio
+                enriched.append(p)
+
+        return enriched
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
